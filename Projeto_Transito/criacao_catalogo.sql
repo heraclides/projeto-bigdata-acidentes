@@ -20,12 +20,19 @@ OPTIONS (
   path "/Volumes/projeto_profissional_big_data/datatran_2018/dados/datatran2018.csv",
   header "true",
   inferSchema "true",
-  sep ";"
+  sep ";",
+  encoding "ISO-8859-1"
 );
 
 -- COMMAND ----------
 
-CREATE TABLE projeto_profissional_big_data.datatran_2018.bronze_datatran18
+CREATE OR REPLACE TABLE projeto_profissional_big_data.datatran_2018.bronze_datatran18
 USING DELTA
 AS
 SELECT * FROM vw_csv_datatran;
+
+-- COMMAND ----------
+
+SELECT * 
+FROM projeto_profissional_big_data.datatran_2018.bronze_datatran18
+LIMIT 5;
